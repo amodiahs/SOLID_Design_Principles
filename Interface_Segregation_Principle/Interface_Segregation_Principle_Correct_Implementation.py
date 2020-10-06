@@ -1,23 +1,28 @@
 from abc import ABCMeta, abstractmethod
 
-#interface Substitution Principle - Correct Implementation
+# Interface Substitution Principle
+# No client should be forced to depend on methods it does not use
+'''
+Smaller role interfaces are created for each feature and the classes would only extend the required interfaces and implement the
+relevant methods
+'''
 
-class calling_device():
+class CallingDevice():
   @abstractmethod
   def make_calls():
     pass
 
-class messaging_device():
+class MessagingDevice():
   @abstractmethod
   def send_sms():
     pass
 
-class internet_browsing_device():
+class InternetbrowsingDevice():
   @abstractmethod
   def browse_internet():
     pass
 
-class smart_phone(calling_device, messaging_device, internet_browsing_device):
+class SmartPhone(CallingDevice, MessagingDevice, InternetbrowsingDevice):
   def make_calls():
     #implementation
     pass
@@ -30,7 +35,7 @@ class smart_phone(calling_device, messaging_device, internet_browsing_device):
     #implementation
     pass
 
-class land_line_phone(calling_device):
+class LandlinePhone(CallingDevice):
   def make_calls():
     #implementation
     pass
