@@ -1,5 +1,11 @@
-#Correct implementation - Liskov Substitution Principle
-class car():
+# Liskov Substitution Principle
+# Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program
+'''
+A better way to implement this would be to introduce setter and getter methods in the Super class Car using which we can set and 
+get Car’s properties without leaving that implementation to individual developers. This way we just get the properties through a 
+setter method and its implementation remains internal to the Super class. 
+'''
+class Car():
   def __init__(self, type):
     self.type = type
     self.car_properties = {}
@@ -10,15 +16,15 @@ class car():
   def get_properties(self):
     return self.car_properties
 
-class petrol_car(car):
+class PetrolCar(Car):
   def __init__(self, type):
     self.type = type
     self.car_properties = {}
 
-car = car("SUV")
+car = Car("SUV")
 car.set_properties("Red", "Auto", 6)
 
-petrol_car = petrol_car("Sedan")
+petrol_car = PetrolCar("Sedan")
 petrol_car.set_properties("Blue", "Manual", 4)
 
 cars = [car, petrol_car]
