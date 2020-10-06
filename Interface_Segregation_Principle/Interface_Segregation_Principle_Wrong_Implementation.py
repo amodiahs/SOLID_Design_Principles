@@ -1,7 +1,13 @@
 from abc import ABCMeta, abstractmethod
 
-#Interface Substitution Principle - Incorrect Implementation
-class communication_device():
+# Interface Substitution Principle
+# No client should be forced to depend on methods it does not use
+'''
+A larger interface bundled with all methods makes it mandatory for all classes to provide implementation of all the methods even if 
+some methods are not relevant to them
+'''
+
+class CommunicationDevice():
   @abstractmethod
   def make_calls():
     pass
@@ -14,7 +20,7 @@ class communication_device():
   def browse_internet():
     pass
 
-class smart_phone(communication_device):
+class SmartPhone(CommunicationDevice):
   def make_calls():
     #implementation
     pass
@@ -27,7 +33,7 @@ class smart_phone(communication_device):
     #implementation
     pass
 
-  class land_line_phone(communication_device):
+  class LandlinePhone(CommunicationDevice):
     def make_calls():
       #implementation
       pass
